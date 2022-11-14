@@ -1,0 +1,12 @@
+{{#if user.img}}
+    <div class="avatar-wrapper">
+        <img class="avatar" src="{{user.img_url}}" />
+    </div>
+  {{else}}
+    <div class="avatar-wrapper">
+        <p class="card-text">
+            {{this.initials}}
+        </p>
+    </div> 
+    <div>{{user.first_name}}</div>
+{{/if}}

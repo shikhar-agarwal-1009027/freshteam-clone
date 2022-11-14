@@ -1,3 +1,7 @@
 <div class="sec-header">
     <span class="emp-title">Employees</span>
   </div>
+{{#each model as |userItem|}}
+    {{#user-avatar user=userItem}}
+    {{/user-avatar}}
+{{/each}}
