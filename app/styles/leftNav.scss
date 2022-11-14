@@ -55,34 +55,19 @@
   opacity: .3;
   border-bottom: 1px solid #427eb0;
   margin-bottom: 10px;
+  .icon-logo{
+    height: 25px;
+    opacity: 0.5;
+  }
+    
+  .icon-logo:hover{
+    border: 1px solid $iconLogoHover;
+    fill: white;
+    cursor: pointer;
+  }
 }
   
-.icon-logo{
-  height: 25px;
-  opacity: 0.5;
-}
-  
-.icon-logo:hover{
-  border: 1px solid $iconLogoHover;
-  fill: white;
-  cursor: pointer;
-}
 
-// .emp-logo-container{
-//   width: 40px;
-//   height: 40px;
-//   margin: 10px 10px 0;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   .link {
-//     text-decoration: none;
-//     color: none;
-//     padding: 5px;
-//     border-radius: 5px;
-//     
-//   }
-// }
 
 .active{
   background-color: $empLogoHover;
