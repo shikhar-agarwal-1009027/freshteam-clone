@@ -7,43 +7,67 @@
   left: 0;
   top: 0;
   bottom: 0;
+  height: 100%;
+  z-index: 1001;
+  padding: 0;
+  align-items: flex-start;
+  display: block;
+  .navitems-wrapper{
+    padding-left: 0;
+    padding: 0;
+    margin-bottom: 0;
+    list-style: none;
+    & li {
+      margin-bottom: 0;
+    }
+    .navitem > a{
+      display: flex;
+      border-radius: 5px;
+      font-size: 20px;
+      text-align: center;
+      color: #fff;
+      margin: 10px;
+      width: 40px;
+      height: 40px;
+      padding: 7px;
+      .emp-logo {
+        fill: $white;
+      }
+    }
+    .navitem:hover {
+      a {
+      border: 1px solid $violetLight;
+      padding: 6px;
+      }
+    }
+  }
+  
 }
   
 .icon-logo-container{
-  padding: 14px 17px 13px 18px;
   background: $darkBlue;
-  box-shadow: 0px 1px 0px $iconBoxShadow1, 0px 2px 0px $iconBoxShadow2;
-  display: flex;
-  justify-content: center;
-}
-  
-.icon-logo{
-  height: 25px;
-  opacity: 0.5;
-}
-  
-.icon-logo:hover{
-  border: 1px solid $iconLogoHover;
-}
-
-.emp-logo-container{
-  width: 40px;
-  height: 40px;
-  margin: 10px 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .link {
-    text-decoration: none;
-    color: none;
-    padding: 5px;
-    border-radius: 5px;
-    .emp-logo {
-      fill: $white;
-      width: 100%;
-    }
+  width: 100%;
+  box-shadow: 0px 2px 0px $iconBoxShadow2,0px 1px 0px $iconBoxShadow1,;
+  height: 54px;
+  text-align: center;
+  color: #427eb0;
+  font-size: 28px;
+  opacity: .3;
+  border-bottom: 1px solid #427eb0;
+  margin-bottom: 10px;
+  .icon-logo{
+    height: 25px;
+    opacity: 0.5;
+  }
+    
+  .icon-logo:hover{
+    border: 1px solid $iconLogoHover;
+    fill: white;
+    cursor: pointer;
   }
 }
+  
+
 
 .active{
   background-color: $empLogoHover;

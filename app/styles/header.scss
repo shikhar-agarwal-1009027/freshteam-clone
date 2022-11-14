@@ -12,20 +12,13 @@
 .logo {
   width: 34px;
   height: 34px;
-  margin: 10px 10px 10px 60px;
-
-  // i did header 100% and required logo distance from nav is 30px so i did 60px + 30px toadjust
-
- 
+  margin: 10px 16px 10px 30px;
 }
 
 .header-title {
   color: $headerTitle #41637c;
- 
- font-weight: 600;
+  font-weight: 600;
   width: fit-content;
-  padding: 20px;
- 
 }
 
 .header-title:hover {
