@@ -2,7 +2,7 @@
 
 .left-nav {
   width: $sideNavWidth;
-  background-color: $leftNavBg;
+  background-color: $darkBlue;
   position: fixed;
   left: 0;
   top: 0;
@@ -11,9 +11,10 @@
   
 .icon-logo-container{
   padding: 14px 17px 13px 18px;
-  background: $leftNavBg;
+  background: $darkBlue;
   box-shadow: 0px 1px 0px $iconBoxShadow1, 0px 2px 0px $iconBoxShadow2;
-  
+  display: flex;
+  justify-content: center;
 }
   
 .icon-logo{
@@ -23,6 +24,29 @@
   
 .icon-logo:hover{
   border: 1px solid $iconLogoHover;
+}
+
+.emp-logo-container{
+  width: 40px;
+  height: 40px;
+  margin: 10px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .link {
+    text-decoration: none;
+    color: none;
+    padding: 5px;
+    border-radius: 5px;
+    .emp-logo {
+      fill: $white;
+      width: 100%;
+    }
+  }
+}
+
+.active{
+  background-color: $empLogoHover;
 }
 
    

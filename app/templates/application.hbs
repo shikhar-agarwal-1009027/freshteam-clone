@@ -4,7 +4,15 @@
     <div class="icon-logo-container">
       {{svg-jar "ft" class="icon-logo"}}
     </div>
+    <div class="emp-logo-container">
+      {{#link-to "users" class="link"}}  
+        {{!-- <div > --}}
+          {{svg-jar "candidates" class="emp-logo"}} 
+        {{!-- </div>   --}}
+      {{/link-to}}
+    </div>
   </div>
+
 
   <header class="header">
     <img class="logo" src="assets/brand-header-logo.png" alt="freshteam logo">
@@ -12,7 +20,7 @@
   </header>
   
   <main class="content">
-
+    {{outlet}}
   </main>
 
   <footer class="footer">

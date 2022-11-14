@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  background: $headerBackground;
+  background: $white;
   box-shadow: $headerBoxShadow;
 }
 
@@ -29,5 +29,5 @@
 }
 
 .header-title:hover {
-  text-decoration: underline 1px solid $headerTitleHover;
+  text-decoration: underline 1px solid $violetLight;
 }
