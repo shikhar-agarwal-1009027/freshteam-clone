@@ -11,6 +11,7 @@
         justify-content: flex-start;
         align-items: center;
         padding-left: 24px;
+        z-index: 1;
         .emp-title{
             color: $darkBlue;
             margin: 17px 0;
@@ -26,12 +27,6 @@
         grid-gap: 9px;
         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
         margin: 24px;
-        // display: flex;
-        // flex-wrap: wrap;
-        // position: relative;
-        // padding: 24px;
-        // justify-content: space-between;
-        // width: 100%;
     }
 }
 
@@ -39,7 +34,6 @@
     background: $white;
     margin: 0 18px 18px 0;
     width: 220px;
-    // height: 300px;
     padding: 50px 20px;
     border-radius: 2px;
     text-align: center;

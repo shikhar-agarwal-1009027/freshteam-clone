@@ -1,5 +1,5 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-    // classNames: ['users-list-wrapper']
+    classNames: ["users-list-wrapper"],
 });
