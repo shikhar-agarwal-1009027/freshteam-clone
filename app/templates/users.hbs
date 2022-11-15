@@ -4,8 +4,12 @@
   </div>  
   <div class="users-list-wrapper">
     {{#each model as |userItem|}}
-      {{#user-avatar user=userItem}}
-      {{/user-avatar}}
+      {{#user-card user=userItem}}
+        
+      {{/user-card}}
+      {{!-- {#user-card user=userItem}}{{/user-card}} --}}
+      {{!-- {{#user-avatar user=userItem}}
+      {{/user-avatar}} --}}
     {{/each}}
   </div>
 </div>
