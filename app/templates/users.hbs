@@ -1,7 +1,11 @@
-<div class="sec-header">
+<div class="users-wrapper">
+  <div class="sec-header">
     <span class="emp-title">Employees</span>
+  </div>  
+  <div class="users-list-wrapper">
+    {{#each model as |userItem|}}
+      {{#user-avatar user=userItem}}
+      {{/user-avatar}}
+    {{/each}}
   </div>
-{{#each model as |userItem|}}
-    {{#user-avatar user=userItem}}
-    {{/user-avatar}}
-{{/each}}
+</div>

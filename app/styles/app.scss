@@ -9,15 +9,17 @@ body {
 }
 
 .content {
-  top: 60px;
+  top: 54px;
   left: 60px;
   right: 0;
   bottom: 0;
   overflow: auto;
   overflow-y: scroll;
+  position: absolute;
 }
 
 @import './leftnav.scss';
 @import './header.scss';
 @import "./footer.scss";
 @import './userSecHeader.scss';
+@import './user.scss';

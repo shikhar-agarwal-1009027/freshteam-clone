@@ -1,5 +1,24 @@
 @import "./variable.scss";
-
+.users-wrapper{
+    // margin-bottom: 60px;
+    .sec-header{
+        left: 0px;
+        right: 0;
+        height: 54px;
+        background-color: $secHeaderUsers;
+        position: abs($number: 0);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 24px;
+    }
+    .users-list-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        margin-top: 24px;
+    }
+}
 .avatar-wrapper{
     display: flex;
     flex-direction: column;

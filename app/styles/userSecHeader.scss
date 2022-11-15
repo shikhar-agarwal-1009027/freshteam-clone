@@ -1,19 +1,13 @@
 @import "./variable.scss";
-.sec-header{
-    left: $sideNavWidth;
-    right: 0;
-    height: 53px;
-    background-color: $secHeaderUsers;
-    position: fixed;
-    top: 54px;
 
-  }
 
   .emp-title{
-    padding-top: 18px;
+    // padding-top: 18px;
     color: $darkBlue;
-    display: flex;
-    margin: 0 0 17px 24px;
+    margin: 17px 0;
+    font-family: 'SF Pro Text';
+    font-style: normal;
     font-weight: 600;
-
+    font-size: 14px;
+    line-height: 18px;
   }
