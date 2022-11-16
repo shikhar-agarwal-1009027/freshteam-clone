@@ -8,6 +8,16 @@ body {
   background: $bodyBackground;
 }
 
+.content {
+  top: 60px;
+  left: 60px;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  overflow-y: scroll;
+}
+
 @import './leftnav.scss';
 @import './header.scss';
 @import "./footer.scss";
+@import './userSecHeader.scss';

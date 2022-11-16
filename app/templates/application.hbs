@@ -1,10 +1,18 @@
 <body class="main">
 
-  <div class="left-nav">
+  <nav class="navbar left-nav">
     <div class="icon-logo-container">
       {{svg-jar "ft" class="icon-logo"}}
     </div>
-  </div>
+    <ul class="nav navitems-wrapper">
+      <li class="navitem">
+        {{#link-to "users" }}  
+           {{svg-jar "candidates" class="emp-logo"}}   
+        {{/link-to}}
+      </li>
+    </ul>
+  </nav>
+
 
   <header class="header">
     <img class="logo" src="assets/brand-header-logo.png" alt="freshteam logo">
@@ -12,7 +20,7 @@
   </header>
   
   <main class="content">
-
+    {{outlet}}
   </main>
 
   <footer class="footer">
