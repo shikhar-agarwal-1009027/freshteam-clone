@@ -2,11 +2,12 @@
 .users-wrapper{
     // margin-bottom: 60px;
     .sec-header{
-        left: 0px;
-        right: 0;
+        min-width: 100%;
         height: 54px;
         background-color: $secHeaderUsers;
-        position: abs($number: 0);
+        position: fixed;
+        top: 54px;
+        left: 60px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -26,7 +27,7 @@
         display: grid;
         grid-gap: 9px;
         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-        margin: 24px;
+        margin: 78px 24px 24px;
     }
 }
 
