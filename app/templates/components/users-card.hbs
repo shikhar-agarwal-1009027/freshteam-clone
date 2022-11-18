@@ -1,4 +1,51 @@
-{{#each model as |userItem|}}
-    {{#user-card user=userItem}}
-    {{/user-card}}
-{{/each}}
+<div class="filterSearch">
+    <div class="filters">
+        <div class="enitity">
+            <div class="label">Filter by</div>
+            <BsDropdown as |dd|>
+                <dd.toggle class="selected">
+                    {{selectedTeam}}
+                    <span class="caret"></span>
+                </dd.toggle>
+                <dd.menu as |menu|>
+                    {{#each this.teamsArray as |filterItem|}}
+                        <li {{action "selectTeam" filterItem}} class="menuItem {{if (isEqual selectedTeam filterItem) "active-bg"}}">
+                            {{filterItem}}
+                            {{#if (isEqual selectedTeam filterItem) }}
+                            {{svg-jar "checkbox-tick"}}
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </dd.menu>
+            </BsDropdown>
+        </div>
+        <div class="enitity">
+            <div class="label">Sort by</div>
+            <BsDropdown as |dd|>
+                <dd.toggle class="selected">
+                    {{selectedSort}}
+                    <span class="caret"></span>
+                </dd.toggle>
+                <dd.menu as |menu|>
+                    {{#each this.sortValues as |sortItem|}}
+                        <li {{action "selectTeam" sortItem 'sort'}} class="menuItem {{if (isEqual selectedSort sortItem) "active-bg"}}">
+                            {{sortItem}}
+                            {{#if (isEqual selectedSort sortItem)}}
+                            {{svg-jar "checkbox-tick"}}
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </dd.menu>
+            </BsDropdown>
+        </div>
+    </div>
+    <div class="searchBar">
+
+    </div>
+</div>
+<div class="users-list-wrapper">
+    {{#each model as |userItem|}}
+        {{#user-card user=userItem}}
+        {{/user-card}}
+    {{/each}}
+</div>
