@@ -1,9 +1,9 @@
-{{#if user.img_url}}
-        <div class="avatar-wrapper">
-            <img class="avatar" src="{{user.img_url}}" />
-        </div>
-    {{else}}
-        <div class="avatar-wrapper" style="background-color:{{this.randomColor}}">
-                {{this.initials}}
-        </div>
+{{#if user.img}}
+    <div class="avatar-wrapper" data-test-id="user-avatar">
+        <img class="avatar" data-test-img-id="user-avatar-img" src="{{user.img_url}}" />
+    </div>
+  {{else}}
+    <div class="avatar-wrapper" data-test-id="no-user-avatar" style="background-color:{{this.randomColor}}">
+            {{this.initials}}
+    </div>
 {{/if}}
