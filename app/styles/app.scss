@@ -1,6 +1,6 @@
 
 @import "ember-bootstrap/bootstrap";
-@import "./variable.scss";
+@import "app/abstracts/variable.scss";
 
 body {
   min-height: 100vh;
@@ -9,15 +9,11 @@ body {
 }
 
 .content {
-  top: 60px;
-  left: 60px;
-  right: 0;
-  bottom: 0;
+  padding: 54px 0 0 60px;
   overflow: auto;
-  overflow-y: scroll;
 }
 
-@import './leftnav.scss';
-@import './header.scss';
-@import "./footer.scss";
-@import './userSecHeader.scss';
+@import 'app/layouts/leftNav.scss';
+@import 'app/layouts/header.scss';
+@import "app/layouts/footer.scss";
+@import 'app/pages/user.scss';

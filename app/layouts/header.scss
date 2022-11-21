@@ -1,4 +1,4 @@
-@import "./variable.scss";
+@import "../abstracts/variable.scss";
 .header {
  left: $sideNavWidth;
   height: 54px;
@@ -7,6 +7,7 @@
   right: 0;
   background: $white;
   box-shadow: $headerBoxShadow;
+  z-index: 1;
 }
 
 .logo {
