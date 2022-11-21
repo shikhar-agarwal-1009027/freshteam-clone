@@ -9,7 +9,7 @@
                 </dd.toggle>
                 <dd.menu as |menu|>
                     {{#each this.teamsArray as |filterItem|}}
-                        <li {{action "selectTeam" filterItem}} class="menuItem {{if (isEqual selectedTeam filterItem) "active-bg"}}">
+                        <li {{action "selectOption" filterItem}} data-test-id={{filterItem}} class="menuItem {{if (isEqual selectedTeam filterItem) "active-bg"}}">
                             {{filterItem}}
                             {{#if (isEqual selectedTeam filterItem) }}
                             {{svg-jar "checkbox-tick"}}
@@ -27,11 +27,20 @@
                     <span class="caret"></span>
                 </dd.toggle>
                 <dd.menu as |menu|>
-                    {{#each this.sortValues as |sortItem|}}
-                        <li {{action "selectTeam" sortItem 'sort'}} class="menuItem {{if (isEqual selectedSort sortItem) "active-bg"}}">
+                    {{#each this.sortArrayValue as |sortItem|}}
+                        <li {{action "selectOption" sortItem 'sort'}} data-test-id={{sortItem}} class="menuItem {{if (isEqual selectedSort sortItem) "active-bg"}}">
                             {{sortItem}}
                             {{#if (isEqual selectedSort sortItem)}}
                             {{svg-jar "checkbox-tick"}}
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                    <menu.divider/>
+                    {{#each this.sortOrderType as |order|}}
+                        <li {{action "selectOrder" order}} data-test-id={{order}} class="menuItem {{if (isEqual selectedSortOrder order) "active-bg"}}">
+                            {{order}}
+                            {{#if (isEqual selectedSortOrder order)}}
+                                {{svg-jar "checkbox-tick"}}
                             {{/if}}
                         </li>
                     {{/each}}
@@ -40,11 +49,17 @@
         </div>
     </div>
     <div class="searchBar">
-
+        {{!-- {{svg-jar "search-big" }} --}}
+        {{input 
+            name="searchInput"
+            key-up=(action 'handleSearch')
+            class="light searchInput"
+            name="search" placeholder="Search by name"}}
+        {{yield results}}
     </div>
 </div>
 <div class="users-list-wrapper">
-    {{#each model as |userItem|}}
+    {{#each this.searchResult as |userItem|}}
         {{#user-card user=userItem}}
         {{/user-card}}
     {{/each}}
