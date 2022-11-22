@@ -82,23 +82,10 @@ export default Component.extend({
             this.set('selectedSortOrder', value);
         },
         handleSearch(event) {
-            debounce(this.sortedResults, this.set('inputValue', event), 150);
-            console.log(event);
-            // let searchInputValue = this.inputValue;
-            // let users = this.model;
+            // debounce(this.sortedResults, this.set('inputValue', event), 150);
+            // console.log(event);
 
-            
-            // function searchResultFilter() {
-            //     console.log( users, searchInputValue)
-            //     if (searchInputValue !== '' || searchInputValue !== null) {
-            //         let searchResults = users.filter((_el) => _el.first_name.search(searchInputValue) > 0)
-            //         console.log(searchResults)
-            //         return searchResults;
-            //     }else return users.filter((_el)=> _el)
-            // }
-            // let temp = debounce(users, searchResultFilter, 150);
-            // debounce(, searchInputValue, 200)
-            // console.log(temp)
+            this.set('inputValue', event);
         }
     }
 });
