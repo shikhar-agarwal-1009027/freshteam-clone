@@ -1,6 +1,7 @@
 @import "../abstracts/variable.scss";
 .users-wrapper{
     // margin-bottom: 60px;
+    min-height: calc(100vh - 160px);
     .sec-header{
         min-width: 100%;
         height: 54px;

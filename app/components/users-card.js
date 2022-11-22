@@ -82,10 +82,10 @@ export default Component.extend({
             this.set('selectedSortOrder', value);
         },
         handleSearch(event) {
-            // debounce(this.sortedResults, this.set('inputValue', event), 150);
-            // console.log(event);
-
-            this.set('inputValue', event);
+            debounce(this, function () {
+                this.set('inputValue', event)
+            },150)
+            ;
         }
     }
 });
