@@ -24,7 +24,7 @@ module('Integration | Component | users-card', function(hooks) {
 
   test('List of users is rendered', async function (assert) {
     let store = this.owner.lookup('service:store');
-    let users = store.createList('users', 14);
+    let users = store.createList('user', 14);
     
     await render(hbs`{{users-card model=this.users}}`);
     assert.dom('.card').exists({ count: 14 });
@@ -33,7 +33,7 @@ module('Integration | Component | users-card', function(hooks) {
 
   test('Search value is present ', async function (assert) {
     let store = this.owner.lookup('service:store');
-    let users = store.createList('users', 14);
+    let users = store.createList('user', 14);
     await render(hbs`{{users-card model=this.users}}`);
 
     assert.dom('input.searchInput').hasValue('');
@@ -41,7 +41,7 @@ module('Integration | Component | users-card', function(hooks) {
 
   test('Filter value is selected ', async function (assert) {
     let store = this.owner.lookup('service:store');
-    let users = store.createList('users', 14);
+    let users = store.createList('user', 14);
     await render(hbs`{{users-card model=this.users}}`);
     await click('.dropdown-toggle')
     await click('[data-test-id="Freshteam"]')
@@ -50,7 +50,7 @@ module('Integration | Component | users-card', function(hooks) {
 
   test('Sort type value is selected ', async function (assert) {
     let store = this.owner.lookup('service:store');
-    let users = store.createList('users', 14);
+    let users = store.createList('user', 14);
     await render(hbs`{{users-card model=this.users}}`);
     await click('.dropdown-toggle')
     await click('[data-test-id="first_name"]')
@@ -59,10 +59,19 @@ module('Integration | Component | users-card', function(hooks) {
 
   test('Sort Order value is selected ', async function (assert) {
     let store = this.owner.lookup('service:store');
-    let users = store.createList('users', 14);
+    let users = store.createList('user', 14);
     await render(hbs`{{users-card model=this.users}}`);
     await click('.dropdown-toggle')
     await click('[data-test-id="Ascending"]')
   });
+
+  test('searched user is not present', async function (assert) {
+    let store = this.owner.lookup('service:store');
+    let users = store.createList('user', 14);
+    await render(hbs`{{users.card model= this.users}}`)
+
+    assert.dom('.users-list-wrapper.card').doesNotExist('no user card is present')
+    assert.dom('.no-user-found').exist('no user container present')
+  })
 
 });

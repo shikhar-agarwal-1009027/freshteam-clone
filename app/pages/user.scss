@@ -29,6 +29,28 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
         margin: 24px;
     }
+    .no-user-found {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding-top: 202px;
+        .not-found-icon {
+            width: 93px;
+            height: 75px;
+            opacity: 0.5;
+        }
+        .text-head {
+            font-weight: 600;
+            font-size: 16px;
+            color: $notFoundText1Color;
+        }
+          
+        .text-body {
+            font-weight: 400;
+            font-size: 14px;
+            color: $notFoundText1Color;
+        }
+    }
     
     .filterSearch{
         display: flex;

@@ -58,9 +58,21 @@
         {{yield results}}
     </div>
 </div>
-<div class="users-list-wrapper">
-    {{#each this.searchResult as |userItem|}}
-        {{#user-card user=userItem}}
-        {{/user-card}}
-    {{/each}}
-</div>
+
+
+{{#if this.searchResult}}
+    <div class="users-list-wrapper">
+        {{#each this.searchResult as |userItem|}}
+            {{#user-card user=userItem}}
+            {{/user-card}}
+        {{/each}}
+    </div>
+{{else}}
+  <div class="no-user-found">
+    {{svg-jar "directory" class="not-found-icon"}}
+
+    <div class="text-head">No employees to list in this view</div>
+    <div class="texy-body">try looking for something less specific</div>
+  </div>
+
+{{/if}}
