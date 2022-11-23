@@ -1,6 +1,51 @@
 
 @import "ember-bootstrap/bootstrap";
 @import "app/abstracts/variable.scss";
+$ember-power-select-trigger-border:1px solid $grey1;
+.ember-power-select-dropdown{
+  padding: 16px;
+  .ember-power-select-search{
+      width: 100%;
+      input {
+          width: 100%;
+          background: #FFFFFF;
+          border: 2px solid #2C5CC5;
+          box-shadow: inset 0px 1px 2px rgba(24, 50, 71, 0.05);
+          border-radius: 4px;
+          &:focus-visible {
+              outline: none;
+          }
+      }
+  }
+  .ember-power-select-options  {
+    margin-top: 8px;
+    .ember-power-select-option{
+      padding: 6px 12px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 4px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .ember-power-select-option[aria-selected=true] {
+        background-color: $filterActive;
+      }
+    }
+    
+  }
+}
+.ember-power-select-option[aria-current=true] {
+  background-color: $filterActive !important;
+  color: $darkBlue !important;
+}
+.ember-power-select-option[aria-selected=true] {
+  background-color: $filterActive !important;
+  font-weight: 600 !important;
+  color: $darkBlue !important;
+}
 
 body {
   min-height: 100vh;
@@ -18,3 +63,5 @@ body {
 @import 'app/layouts/header.scss';
 @import "app/layouts/footer.scss";
 @import 'app/pages/user.scss';
+@import 'app/pages/slideModal.scss';
+@import "ember-power-select";

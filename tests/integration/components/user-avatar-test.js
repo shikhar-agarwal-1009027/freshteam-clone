@@ -33,7 +33,7 @@ module('Integration | Component | user-avatar', function(hooks) {
 
     assert.dom('[data-test-id="user-avatar"]').exist('avatar image does exist');
     assert.dom('[data-test-id="no-user-avatar"]').doesNotExist('avatar image does not exist');
-    assert.dom('[data-test-img-id="user-avatar-img]').hasAttribute('src', user.img_url)
+    assert.dom('[data-test-img-id="user-avatar-img]').hasAttribute('src', this.user.img_url)
   });
   test('user avatar renders image when img_url is present', async function(assert) {
     await render(hbs`{{user-avatar user=this.user1}}`);

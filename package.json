@@ -48,7 +48,10 @@
     "eslint-plugin-ember": "^5.2.0",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.7.1",
-    "sass": "^1.56.0"
+    "sass": "^1.56.0",
+    "ember-cli-bootstrap-datepicker": "0.6.1",
+    "ember-power-select": "2.2.3",
+    "ember-cp-validations": "3.5.5"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
