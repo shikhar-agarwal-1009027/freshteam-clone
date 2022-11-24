@@ -4,7 +4,8 @@ export default Route.extend({
     model() {
 
         return this.store.createRecord('user', {
-            ig_url:'https://joeschmoe.io/api/v1/mail@ashallendesign.co.uk',
+            img_url: '',
+            // img_url:'https://joeschmoe.io/api/v1/mail@ashallendesign.co.uk',
             first_name: "new",
             last_name: "user",
             email: "newuser@gmail.com",

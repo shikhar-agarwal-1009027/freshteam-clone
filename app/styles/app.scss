@@ -1,6 +1,8 @@
 
 @import "ember-bootstrap/bootstrap";
-@import "app/abstracts/variable.scss";
+@import "./abstracts/variable.scss";
+@import "ember-power-select";
+
 $ember-power-select-trigger-border:1px solid $grey1;
 .ember-power-select-dropdown{
   padding: 16px;
@@ -59,9 +61,8 @@ body {
   overflow: auto;
 }
 
-@import 'app/layouts/leftNav.scss';
-@import 'app/layouts/header.scss';
-@import "app/layouts/footer.scss";
-@import 'app/pages/user.scss';
-@import 'app/pages/slideModal.scss';
-@import "ember-power-select";
+@import './layouts/footer';
+@import './layouts/header';
+@import './layouts/leftNav';
+@import './pages/user';
+@import './pages/slideModal';

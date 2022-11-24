@@ -5,11 +5,11 @@
     <div class="header-content">
         <div class="addEmp-user-title">Add Employee</div>
         <div class="addEmp-action-btns">
-            {{#link-to "users" class="reset"}}
-                <span>Reset</span>
+            {{#link-to "users" class="cancel-text"}}
+                <span>Cancel</span>
             {{/link-to}}
             {{#link-to "users"}}
-                <button class="apply" {{action "save" userData}}>Apply</button>
+                <button class="apply" {{action "save" userData}}>Save</button>
             {{/link-to}}
         </div>
     </div>
@@ -19,12 +19,13 @@
   {{#if userData.img_url}}
   <div class="avatar-form">
     <img class="avatar-img" src="{{userData.img_url}}" />
+    <input class="upload" id="imgFile" onchange={{action "uploadImage" }} type="file" />
   </div>
   {{else}}
   <div class="avatar-form">
     {{svg-jar "avatar-loading" class="dummy-icon"}}
-        {{svg-jar "img-upload" class='uploadImg-icon'}}
-        <input class="upload" id="imgFile" onchange={{action "setAvatar" }} type="file" />
+    {{svg-jar "img-upload" class='uploadImg-icon'}}
+    <input class="upload" id="imgFile" onchange={{action "uploadImage" }} type="file" />
   </div>
   {{/if}}
 
@@ -130,7 +131,7 @@
                 @searchField="name"
                 @class="power-select {{if (isEqual userData.team teamName) "active-bg"}}"
                 @selected={{userData.team}} 
-                @onchange={{action "chooseTeam"}} as |teamName|
+                @onchange={{action 'selectTeam'}} as |teamName|
             >   
                 {{teamName}}
                 {{#if (isEqual userData.team teamName)}}

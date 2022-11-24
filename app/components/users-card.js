@@ -70,7 +70,6 @@ export default Component.extend({
     
     actions: {
         selectOption(value, method = '') {
-            console.log(value, method)
             if (method === 'sort') {
                 if (this.sortValues.indexOf(value.split(' ').join('_')) !== -1) this.set('selectedSort', value);
                 console.log(this.selectedSort);
