@@ -8,9 +8,7 @@
             {{#link-to "users" class="cancel-text"}}
                 <span>Cancel</span>
             {{/link-to}}
-            {{#link-to "users"}}
-                <button class="apply" {{action "save" userData}}>Save</button>
-            {{/link-to}}
+            <button class="apply" {{action "save" userData}}>Save</button>
         </div>
     </div>
 </div>
@@ -39,7 +37,7 @@
                 value=userData.first_name
                 focus-out=(action (mut showFirstNameError) true)
             }}
-        {{#if showFirstNameError}}
+        {{#if (and didValidate showFirstNameError)}}
         <div class="error">
             {{v-get userData 'first_name' 'message'}}
         </div>
@@ -97,7 +95,7 @@
             {{input
                 type="text"
                 class="user-input"
-                id="design"
+                id="designation"
                 focus-out=(action (mut showDesignationError) true)
                 value=userData.designation
             }}
@@ -110,26 +108,12 @@
     <div class="field-wrapper">
         <div class="label-tag">Team</div>
             {{svg-jar "search" class="search-icon"}}
-        {{!-- {{#power-select
-            destination="customized-destination"
-            options=this.teams
-            required="true"
-            selected= userData.team
-            onchange=(action "chooseTeam")
-            as |teamName|
-        }}
-            {{#if (isEqual userData.team name)}}
-            {{svg-jar "checkbox-tick"}}
-            {{/if}}
-            {{teamName}}
-        {{/power-select}}
-        <div id="customized-destination"></div>  --}}
             <PowerSelect 
                 @options={{this.teams}}
-                
+                @destination="test-container"
                 @searchEnabled={{true}}
                 @searchField="name"
-                @class="power-select {{if (isEqual userData.team teamName) "active-bg"}}"
+                @class="power-select user-input {{if (isEqual userData.team teamName) "active-bg"}}"
                 @selected={{userData.team}} 
                 @onchange={{action 'selectTeam'}} as |teamName|
             >   
@@ -137,8 +121,7 @@
                 {{#if (isEqual userData.team teamName)}}
                     {{svg-jar "checkbox-tick"}}
                 {{/if}}
-            </PowerSelect> 
-            {{!-- <div id="customized-destination" class="list-destination"></div> --}}
+            </PowerSelect>
     </div>
   </div>
 </form>

@@ -5,7 +5,7 @@ import { set, get } from '@ember/object';
 export default Component.extend({
     classNames: ['slide-add-emp-div'],
     teams: ['Freshteam','Freshdesk','Freshservice'],
-    selectedTeam: 'Freshteam',
+    selectedTeam: '',
 
     converImageToBase64() {
         let image = document.querySelector(".upload").files[0];
@@ -26,10 +26,12 @@ export default Component.extend({
             })
         },
         save(userData) {
+            this.set('didValidate', true);
             userData.validate().then(({ validations }) => {
                 if (validations.get('isValid')) {
                     console.log({userData})
-                    // userData.save();
+                    userData.save();
+                    this.transitionTo('users');
                 }
             }).catch((err) => {
                 console.log(err)
