@@ -1,5 +1,27 @@
 <div class="card">
+    <div class="card-action-btn">
+
+        {{#link-to "users.edit" user.id}} {{svg-jar "edit" class="action-icons edit"}} {{/link-to}}
+        <div {{action "setOpenModal"}}> {{svg-jar "trash" class="action-icons"}} </div>
+    </div>
     {{#user-avatar user=user}}{{/user-avatar}}
     <strong class="name" data-test-id="user-name">{{user.first_name}} {{user.last_name}}</strong>
     <p class="email" data-test-id="user-email">{{user.email}}</p>
 </div>
+{{#if this.openModal}}
+    <BsModal
+        @open={{this.openModal}}
+        @class="confirmation-modal" as |modal|>
+        <modal.body>
+            <div class="body-heading">
+                {{svg-jar "alert-danger" class="alert-danger-icon"}} 
+                <span>Do you wish to remove this employee from freshteam</span>
+            </div>
+            <div class="modal-bodyAction-btns">
+                <BsButton @onClick={{modal.close}} @type="dark" @outline={{true}} class="modal-actionbtn btn-no">No</BsButton>
+                <BsButton @onClick={{action "deleteUser" user}} class="modal-actionbtn btn-yes">Yes</BsButton>
+            </div>
+
+        </modal.body>
+    </BsModal>
+{{/if}}

@@ -29,7 +29,6 @@ export default Component.extend({
             this.set('didValidate', true);
             userData.validate().then(({ validations }) => {
                 if (validations.get('isValid')) {
-                    console.log({userData})
                     userData.save();
                     this.transitionTo('users');
                 }
@@ -42,6 +41,6 @@ export default Component.extend({
             this.set('userData.team', value);
             this.set('selectedTeam', value);
             console.log(this.userData)
-        }
+        },
     }
 });

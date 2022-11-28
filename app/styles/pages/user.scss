@@ -145,6 +145,28 @@
     text-align: center;
     padding: 16px;
     align-items: center;
+
+    .card-action-btn {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        a {
+            text-decoration: none;
+        }
+        .edit {
+            margin-right: 16px;
+        }
+        .action-icons {
+            fill: $white;
+            height: 14px;
+            width: 14px;
+            cursor: pointer;
+            &:hover {
+                fill: black;
+            }
+        }
+    }
     .name {
         font-family: 'SF Pro Text';
         font-style: normal;
@@ -161,6 +183,11 @@
         line-height: 20px;
         letter-spacing: 0.07px;
         color: #576C7D;
+    }
+    &:hover {
+        .action-icons {
+            fill: black;
+        }
     }
     
 }
@@ -187,4 +214,53 @@
     width: 100%;
     height: 100%;
     border-radius: 50%
+}
+.confirmation-modal{
+    .modal-content{
+        min-width: 602px;
+        .modal-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .body-heading {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 21px;
+                color: $darkBlue;
+                span{
+                    margin-left: 14px;
+                }
+                .alert-danger-icon{
+                    fill: #E86F25;
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+            .modal-bodyAction-btns{
+                display: flex;
+                .modal-actionbtn {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 6px 12px;
+                    width: 56px;
+                    height: 30px;
+                }
+                .btn-no {
+                    border: 0;
+                    &:hover {
+                        background: none;
+                        color: $darkBlue;
+                    }
+                }
+                .btn-yes{
+                    background: #264966;
+                    border: 1px solid $darkBlue;
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
 }
