@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, only } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, typeIn, click, select } from '@ember/test-helpers';
 import { set, get } from '@ember/object';
@@ -104,14 +104,13 @@ module('Integration | Component | user-form', function(hooks) {
 
     })
     test('joining date value is present',async function(assert){
-      await render(hbs`{{user-form userData=this.userData}}`);
+      await render(hbs`{{user-form userData=this.userData}} <div id="test-container"></div>`);
 
       await click('#date');
-      await click('.datepicker-dropdown');
-      await click('.datepicker-days');
+      await click('.datepicker-days .day:first-child');
 
-      assert.dom('#date').hasAnyValue()
-    })
+      assert.dom('#date').hasAnyValue();
+    });
     test('designation field value is empty',async function(assert){
       await render(hbs`{{user-form userData=this.userData}}`);
 
@@ -123,11 +122,11 @@ module('Integration | Component | user-form', function(hooks) {
       await typeIn('#designation','Designation');
       assert.dom('#designation').hasValue('Designation');
     })
-    test('teams options is selected',async function(assert){
-      await render(hbs`{{user-form userData=this.userData}}`);
+  test('teams options is selected', async function (assert) {
+    await render(hbs`{{user-form userData=this.userData}} <div id="test-container"></div>`);
 
-      await click('.ember-power-select-trigger');
+    await click('.ember-power-select-trigger');
 
-      assert.dom("#test-container .ember-power-select-dropdown").exists();
-    })
+    assert.dom("#test-container .ember-power-select-dropdown").exists();
+  });
 });
