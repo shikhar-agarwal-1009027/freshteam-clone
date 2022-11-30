@@ -7,20 +7,12 @@ export default Component.extend({
     store: inject(),
     actions: {
         deleteUser(user) {
-            // debugger
-            // console.log(userId);
             user.deleteRecord();
             user.save();
             this.set('openModal', false)
-            //   });
         },
         setOpenModal() {
-            if (!this.openModal) {
-                this.set('openModal', true)
-            } else {
-                this.set('openModal', false)
-            }
-            // this.set('openModal', !this.openModal)
+            this.set('openModal', !this.openModal)
         }
     }
 });
