@@ -82,6 +82,7 @@
                 format="dd.mm.yy"
                 id="date"
                 focus-out=(action (mut showJoiningDateError) true)
+                widgetContainer="#test-container"
             }}
         {{#if showJoiningDateError}}
         <div class="error">
