@@ -52,7 +52,7 @@
                 value=userData.last_name
                 focus-out=(action (mut showLastNameError) true)
                 }}
-            {{#if showLastNameError}}
+            {{#if (and didValidate showLastNameError)}}
         <div class="error">
             {{v-get userData 'last_name' 'message'}}
         </div>
@@ -67,7 +67,7 @@
                 value=userData.email
                 focus-out=(action (mut showEmailError) true)
             }}
-        {{#if showEmailError}}
+        {{#if (and didValidate showEmailError)}}
         <div class="error">
             {{v-get userData 'email' 'message'}}
         </div>
@@ -84,7 +84,7 @@
                 focus-out=(action (mut showJoiningDateError) true)
                 widgetContainer="#test-container"
             }}
-        {{#if showJoiningDateError}}
+        {{#if (and didValidate showJoiningDateError)}}
         <div class="error">
             {{v-get userData 'joiningDate' 'message'}}
 
@@ -100,7 +100,7 @@
                 focus-out=(action (mut showDesignationError) true)
                 value=userData.designation
             }}
-        {{#if showDesignationError}}
+        {{#if (and didValidate showDesignationError)}}
         <div class="error">
             {{v-get userData 'designation' 'message'}}
         </div>
