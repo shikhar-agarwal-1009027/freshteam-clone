@@ -1,11 +1,12 @@
 import Component from '@ember/component';
-
+import { inject as service } from '@ember/service';
 import { set, get } from '@ember/object';
 
 export default Component.extend({
     classNames: ['slide-add-emp-div'],
     teams: ['Freshteam','Freshdesk','Freshservice'],
     selectedTeam: '',
+    router: service(),
 
     converImageToBase64() {
         let image = document.querySelector(".upload").files[0];
@@ -30,7 +31,7 @@ export default Component.extend({
             userData.validate().then(({ validations }) => {
                 if (validations.get('isValid')) {
                     userData.save();
-                    this.transitionTo('users');
+                    this.router.transitionTo('users');
                 }
             }).catch((err) => {
                 console.log(err)
