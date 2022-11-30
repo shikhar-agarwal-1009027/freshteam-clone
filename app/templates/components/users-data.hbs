@@ -11,13 +11,10 @@
     selectFilterOption=(action "selectFilterOption")
     selectSortOption=(action "selectSortOption")
     model=model
+    as |filteredUsers|
 }}
+    {{#users-card 
+        searchResult=filteredUsers
+    }}
+    {{/users-card}}
 {{/user-filtering}}
-
-{{#users-card 
-    searchResult=searchResult
-}}
-{{/users-card}}
-
-
-{{!-- {{yield this.searchResult}} --}}
