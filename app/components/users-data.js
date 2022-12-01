@@ -3,6 +3,8 @@ import { computed, get } from '@ember/object';
 import { debounce } from '@ember/runloop';
 
 export default Component.extend({
+
+    listType: true,
     sortOrderType: ['Ascending', 'Descending'],
     selectedSort: 'First Name',
     selectedTeam: 'All Employees',

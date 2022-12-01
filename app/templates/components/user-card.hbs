@@ -1,10 +1,9 @@
 <div class="card">
     <div class="card-action-btn">
-
         {{#link-to "users.edit" user.id}} {{svg-jar "edit" class="action-icons edit"}} {{/link-to}}
         <div {{action "setOpenModal"}}> {{svg-jar "trash" class="action-icons"}} </div>
     </div>
-    {{#user-avatar user=user}}{{/user-avatar}}
+    {{#user-avatar user=user class="cardView"}}{{/user-avatar}}
     <strong class="name" data-test-id="user-name">{{user.first_name}} {{user.last_name}}</strong>
     <p class="email" data-test-id="user-email">{{user.email}}</p>
 </div>

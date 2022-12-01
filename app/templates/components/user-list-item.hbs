@@ -2,45 +2,57 @@
 <tr class="row">
   <td class="col">
     <div class="name-img-container">
-      <div>
-            {{user-avatar user=user class="small-circle-div"}}
+      <div class="imageBox">
+        {{#user-avatar user=user class='listAvatar' }}
+        {{/user-avatar}}
       </div>
-   
-      <div>
-        <div class="title-div">{{user.first_name}} {{user.last_name}}</div>
-        <div class="design">{{user.designation}}</div>
+      <div class="contentBox">
+        <div class="name">{{user.first_name}} {{user.last_name}}</div>
+        <div class="designation">{{'software engineer'}}</div>
       </div>
-
     </div>
   </td>
-
   <td class="col">
-
-    <div class="sec-td">
+    <div class="email">
       {{svg-jar "email" class="mail-icon"}}
       <span>{{user.email}}</span>
-
     </div>
   </td>
 
   <td class="col">
-
-    {{user.team}}
+    <div class="teamName">
+      {{user.team}}
+    </div>
   </td>
 
   <td class="col">
-
-<div class="dropdown-action">
-  <BsDropdown  as |dd| >
-      <dd.toggle> {{svg-jar "ellipsis-v" class="ellipsis"}}</dd.toggle>
-      <dd.menu as |ddm|>
-        {{#link-to "users-listview.edit" user class=user.id}}<li>Edit</li>{{/link-to}}
-
-        <li onclick={{action "initiateDel" }}>Delete</li>
-      </dd.menu>
-    </BsDropdown>
-
-</div>
-    
+    <div class="action-dropdown">
+      <BsDropdown as |dd|>
+        <dd.button>
+          {{svg-jar "ellipsis-v" class="ellipsis"}}
+        </dd.button>
+        <dd.menu as |menu|>
+          {{#link-to "users.edit" user.id}}<li>Edit</li> {{/link-to}}
+          <li {{action "setOpenModal"}}> Delete </li>
+        </dd.menu>
+      </BsDropdown>
+    </div>
   </td>
 </tr>
+{{#if this.openModal}}
+    <BsModal
+        @open={{this.openModal}}
+        @class="confirmation-modal" as |modal|>
+        <modal.body>
+            <div class="body-heading">
+                {{svg-jar "alert-danger" class="alert-danger-icon"}} 
+                <span>Do you wish to remove this employee from freshteam</span>
+            </div>
+            <div class="modal-bodyAction-btns">
+                <BsButton @onClick={{modal.close}} @type="dark" @outline={{true}} class="modal-actionbtn btn-no">No</BsButton>
+                <BsButton @onClick={{action "deleteUser" user}} class="modal-actionbtn btn-yes">Yes</BsButton>
+            </div>
+
+        </modal.body>
+    </BsModal>
+{{/if}}

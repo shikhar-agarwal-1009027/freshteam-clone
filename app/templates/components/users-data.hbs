@@ -1,20 +1,42 @@
-{{#user-filtering 
-    teams=teams
-    sortValues=sortValues
-    sortOrderType=sortOrderType
-    selectedSort=selectedSort
-    selectedTeam=selectedTeam
-    selectedSortOrder=selectedSortOrder
-    inputValue=inputValue
-    handleSearch=(action "handleSearch")
-    selectOrder=(action "selectOrder")
-    selectFilterOption=(action "selectFilterOption")
-    selectSortOption=(action "selectSortOption")
-    model=model
-    as |filteredUsers|
-}}
-    {{#users-card 
-        searchResult=filteredUsers
+
+{{#if this.listType}}
+    {{#user-filtering 
+        teams=teams
+        sortValues=sortValues
+        sortOrderType=sortOrderType
+        selectedSort=selectedSort
+        selectedTeam=selectedTeam
+        selectedSortOrder=selectedSortOrder
+        inputValue=inputValue
+        handleSearch=(action "handleSearch")
+        selectOrder=(action "selectOrder")
+        selectFilterOption=(action "selectFilterOption")
+        selectSortOption=(action "selectSortOption")
+        model=model
+        as |filteredUsers|
     }}
-    {{/users-card}}
-{{/user-filtering}}
+        {{#users-list searchResult=filteredUsers}}{{/users-list}}
+    {{/user-filtering}}
+    
+  {{else}}
+    {{#user-filtering 
+        teams=teams
+        sortValues=sortValues
+        sortOrderType=sortOrderType
+        selectedSort=selectedSort
+        selectedTeam=selectedTeam
+        selectedSortOrder=selectedSortOrder
+        inputValue=inputValue
+        handleSearch=(action "handleSearch")
+        selectOrder=(action "selectOrder")
+        selectFilterOption=(action "selectFilterOption")
+        selectSortOption=(action "selectSortOption")
+        model=model
+        as |filteredUsers|
+    }}
+        {{#users-card 
+            searchResult=filteredUsers
+        }}
+        {{/users-card}}
+    {{/user-filtering}}
+{{/if}}
