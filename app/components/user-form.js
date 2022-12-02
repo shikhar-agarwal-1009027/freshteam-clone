@@ -20,14 +20,17 @@ export default Component.extend({
     },
     actions: {
         uploadImage() {
-            get(this, 'converImageToBase64')().then((result) => {
-              set(this, 'userData.img_url', result);
-            }, (error) => {
-              console.log(error);
-            })
+            let image = document.querySelector(".upload").files[0];
+            console.log(image)
+            // get(this, 'converImageToBase64')().then((result) => {
+            //   set(this, 'userData.img_url', result);
+            // }, (error) => {
+            //   console.log(error);
+            // })
+            set(this, 'userData.img_url', image);
         },
         save(userData) {
-            this.set('didValidate', true);
+            set(this,'didValidate', true);
             userData.validate().then(({ validations }) => {
                 if (validations.get('isValid')) {
                     userData.save();
@@ -39,9 +42,8 @@ export default Component.extend({
         },
 
         selectTeam(value) {
-            this.set('userData.team', value);
-            this.set('selectedTeam', value);
-            console.log(this.userData)
+            set(this,'userData.team', value);
+            set(this,'selectedTeam', value);
         }
     }
 });
