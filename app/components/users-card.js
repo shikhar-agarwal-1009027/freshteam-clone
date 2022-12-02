@@ -56,7 +56,6 @@ export default Component.extend({
         let sortedUsers = get(this, 'sortedResults');
         let temp = [];
 
-        console.log(searchInputValue)
         if (searchInputValue !== '' || searchInputValue !== null) {
             temp = sortedUsers.filter((_el) => {
                 if (_el['first_name'].toLowerCase().includes(searchInputValue.toLowerCase()) > 0) return _el;
@@ -72,7 +71,6 @@ export default Component.extend({
         selectOption(value, method = '') {
             if (method === 'sort') {
                 if (this.sortValues.indexOf(value.split(' ').join('_')) !== -1) this.set('selectedSort', value);
-                console.log(this.selectedSort);
             } else {
                 if (this.teams.indexOf(value) !== -1) this.set('selectedTeam', value);
             }

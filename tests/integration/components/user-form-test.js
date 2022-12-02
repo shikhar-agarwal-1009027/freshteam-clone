@@ -58,7 +58,8 @@ module('Integration | Component | user-form', function(hooks) {
     })
     await render(hbs`{{users-card model=this.users}}`);
     assert.dom('.card').exists({ count: 4 });
-    })
+  });
+
     test("all input elements are present", async function (assert) {
 
       await render(hbs`{{user-form}}`);
@@ -67,61 +68,64 @@ module('Integration | Component | user-form', function(hooks) {
 
     });
   
-    test('first name field value is empty', async function (assert) {
+    test('first name field binds data correctly', async function (assert) {
       await render(hbs`{{user-form userData=this.userData}}`);
 
-      assert.dom('#firstName').hasNoValue("")
-    });
-    test('first name value is present', async function (assert) {
-      await render(hbs`{{user-form userData=this.userData}}`);
-
+      assert.dom('#firstName').hasNoValue("");
       await typeIn('#firstName', 'First Name');
-      assert.dom('#firstName').hasValue('First Name');
+      assert.equal('userData.first_name', 'First Name');
+      // assert.dom('#firstName').hasNoValue("")
     });
+    // test('first name value is present', async function (assert) {
+    //   await render(hbs`{{user-form userData=this.userData}}`);
+
+    //   await typeIn('#firstName', 'First Name');
+    //   assert.dom('#firstName').hasValue('First Name');
+    // });
   
-    test('last name field value is empty',async function(assert){
+    test('last name field binds data correctly',async function(assert){
       await render(hbs`{{user-form userData=this.userData}}`);
 
-      assert.dom('#lastName').hasNoValue("")
+      assert.dom('#lastName').hasNoValue("");
+      await typeIn('#lastName', 'Last Name');
+      assert.equal('userData.last_name', 'Last Name');
     })
-    test('last name value is present',async function(assert){
-      await render(hbs`{{user-form userData=this.userData}}`);
+    // test('last name value is present',async function(assert){
+    //   await render(hbs`{{user-form userData=this.userData}}`);
 
-      await typeIn('#lastName','Last Name');
-      assert.dom('#lastName').hasValue('Last Name');
-    })
-    test('email field value is empty',async function(assert){
+    //   await typeIn('#lastName','Last Name');
+    //   assert.dom('#lastName').hasValue('Last Name');
+    // })
+    test('email field binds data correctly',async function(assert){
       await render(hbs`{{user-form userData=this.userData}}`);
 
       assert.dom('#email').hasAttribute('type', 'email'); 
       assert.dom('#email').hasNoValue("");
+      await typeIn('#email', 'user.name@gmail.com');
+      assert.equal('userData.email', 'user.name@gmail.com');
     })
-    test('email value is present',async function(assert){
-      await render(hbs`{{user-form userData=this.userData}}`);
+    // test('email value is present',async function(assert){
+    //   await render(hbs`{{user-form userData=this.userData}}`);
 
-      await typeIn('#email','user.name@gmail.com');
-      assert.dom('#email').hasValue('user.name@gmail.com');
+    //   await typeIn('#email','user.name@gmail.com');
+    //   assert.dom('#email').hasValue('user.name@gmail.com');
 
-    })
-    test('joining date value is present',async function(assert){
-      await render(hbs`{{user-form userData=this.userData}} <div id="test-container"></div>`);
+    // })
+  test('joining date value is present', async function (assert) {
+    await render(hbs`{{user-form userData=this.userData}} <div id="test-container"></div>`);
 
-      await click('#date');
-      await click('.datepicker-days .day:first-child');
+    await click('#date');
+    await click('.datepicker-days .day:first-child');
 
-      assert.dom('#date').hasAnyValue();
-    });
-    test('designation field value is empty',async function(assert){
-      await render(hbs`{{user-form userData=this.userData}}`);
+    assert.dom('#date').hasAnyValue();
+  });
+  test('designation field binds data correctly', async function (assert) {
+    await render(hbs`{{user-form userData=this.userData}}`);
 
-      assert.dom('#designation').hasNoValue(" ")
-    })
-    test('designation value is present',async function(assert){
-      await render(hbs`{{user-form userData=this.userData}}`);
-
-      await typeIn('#designation','Designation');
-      assert.dom('#designation').hasValue('Designation');
-    })
+    assert.dom('#designation').hasNoValue("");
+    await typeIn('#designation', 'Designation');
+    assert.equal('userData.designation', 'Designation');
+  });
   test('teams options is selected', async function (assert) {
     await render(hbs`{{user-form userData=this.userData}} <div id="test-container"></div>`);
 
@@ -129,4 +133,17 @@ module('Integration | Component | user-form', function(hooks) {
 
     assert.dom("#test-container .ember-power-select-dropdown").exists();
   });
+  test('Form errors are present', async function (assert) {
+    await render(hbs`{{user-form userData=this.userData}}`);
+
+    set(this, 'userData.save()', function () {
+      assert.ok('user data save is invoked')
+    })
+    assert.dom('#firstName').hasNoValue("");
+    assert.dom('#lastName').hasNoValue("");
+    assert.dom('#email').hasNoValue("");
+    assert.dom('#designation').hasNoValue("");
+    assert.dom('.error').exists();
+    assert.ok('Error in form');
+  })
 });
