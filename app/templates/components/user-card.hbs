@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-action-btn">
 
-        {{#link-to "users.edit" user.id}} {{svg-jar "edit" class="action-icons edit"}} {{/link-to}}
-        <div {{action "setOpenModal"}}> {{svg-jar "trash" class="action-icons"}} </div>
+        {{#link-to "users.edit" user.id id="edit-btn"}} {{svg-jar "edit" class="action-icons edit"}} {{/link-to}}
+        <div {{action "setOpenModal"}} id="delete-btn"> {{svg-jar "trash" class="action-icons"}} </div>
     </div>
     {{#user-avatar user=user}}{{/user-avatar}}
     <strong class="name" data-test-id="user-name">{{user.first_name}} {{user.last_name}}</strong>
