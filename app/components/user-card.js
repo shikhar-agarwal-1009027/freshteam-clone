@@ -8,10 +8,10 @@ export default Component.extend({
         deleteUser(user) {
             user.deleteRecord();
             user.save();
-            this.set('openModal', false)
+            set(this,'openModal', false)
         },
         setOpenModal() {
-            this.set('openModal', !this.openModal)
+            set(this,'openModal', !this.openModal)
         }
     }
 });

@@ -1,6 +1,8 @@
 import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 
 export default Route.extend({
+    listView: false,
 //   beforeModel(){
 //     let users = [{
 //         first_name: 'Vamsi',
@@ -118,4 +120,9 @@ export default Route.extend({
 
         return this.store.findAll('user');
     },
+    actions: {
+        changeView() {
+            set(this, 'listView', !this.listView);
+        }
+    }
 });

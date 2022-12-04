@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed, get } from '@ember/object';
+import { computed } from '@ember/object';
 import { debounce } from '@ember/runloop';
 
 export default Component.extend({
@@ -14,6 +14,7 @@ export default Component.extend({
     teams: computed('model', function () {
         let teams = ['All Employees']
         let users = this.model;
+        console.log(this.listView)
         users.forEach(element => {
             if (teams.indexOf(element.team) === -1) teams.push(element.team);
         });

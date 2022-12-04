@@ -148,6 +148,8 @@
         a {
             text-decoration: none;
             background-color: none;
+            width: 100%;
+            margin-bottom: 10px;
             &:hover {
                 text-decoration: none;
                 background-color: none;
@@ -159,10 +161,8 @@
             font-size: 14px;
             line-height: 18px;
             color: #27303E;
+            width: 100%;
             cursor: pointer;
-            &:first-child {
-                margin-bottom: 10px;
-            }
         }
     }
 }
