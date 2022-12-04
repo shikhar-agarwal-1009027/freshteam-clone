@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test , only} from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render,click, visit } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -32,7 +32,7 @@ module('Integration | Component | user-card', function(hooks) {
   test('edit the user details', async function (assert) {
     await render(hbs`{{user-card user=this.user}}`);
 
-    await click('#edit-btn');
+    await click('.card-action-btn a');
     await visit('users/edit/:id')
     await render(hbs`{{user-form userData=this.user}}`);
 
@@ -42,11 +42,13 @@ module('Integration | Component | user-card', function(hooks) {
     assert.dom('#designation').hasAnyValue();
 
   })
-  test('delete the user ', async function (assert) {
-    await render(hbs`{{user-card user=this.user}}`);
+  only('delete the user ', async function (assert) {
+    await render(hbs`{{user-card user=this.user}} <div id="ember-bootstrap-wormhole"></div>`);
 
     await click('#delete-btn');
+    assert.dom('#ember-bootstrap-wormhole #del-confirm').exists();
 
-    assert.ok('User is deleted');
+    await click('#ember-bootstrap-wormhole #del-confirm');
+    assert.ok(this.user.isDeleted);
   })
 });

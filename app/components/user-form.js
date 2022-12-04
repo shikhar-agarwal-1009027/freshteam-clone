@@ -20,13 +20,11 @@ export default Component.extend({
     },
     actions: {
         uploadImage() {
-            let image = document.querySelector(".upload").files[0];
-            console.log(image)
-            // get(this, 'converImageToBase64')().then((result) => {
-            //   set(this, 'userData.img_url', result);
-            // }, (error) => {
-            //   console.log(error);
-            // })
+            get(this, 'converImageToBase64')().then((result) => {
+              set(this, 'userData.img_url', result);
+            }, (error) => {
+              console.log(error);
+            })
             set(this, 'userData.img_url', image);
         },
         save(userData) {

@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-action-btn">
 
-        {{#link-to "users.edit" user.id id="edit-btn"}} {{svg-jar "edit" class="action-icons edit"}} {{/link-to}}
+        {{#link-to "users.edit" user.id}} {{svg-jar "edit" class="action-icons edit"}} {{/link-to}}
         <div {{action "setOpenModal"}} id="delete-btn"> {{svg-jar "trash" class="action-icons"}} </div>
     </div>
     {{#user-avatar user=user}}{{/user-avatar}}
@@ -19,7 +19,7 @@
             </div>
             <div class="modal-bodyAction-btns">
                 <BsButton @onClick={{modal.close}} @type="dark" @outline={{true}} class="modal-actionbtn btn-no">No</BsButton>
-                <BsButton @onClick={{action "deleteUser" user}} class="modal-actionbtn btn-yes">Yes</BsButton>
+                <BsButton @onClick={{action "deleteUser" user}} class="modal-actionbtn btn-yes" id="del-confirm">Yes</BsButton>
             </div>
 
         </modal.body>
