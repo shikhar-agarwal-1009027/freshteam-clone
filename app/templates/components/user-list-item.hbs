@@ -8,7 +8,7 @@
       </div>
       <div class="contentBox">
         <div class="name">{{user.first_name}} {{user.last_name}}</div>
-        <div class="designation">{{'software engineer'}}</div>
+        <div class="designation">{{if user.designation user.designation 'software engineer'}}</div>
       </div>
     </div>
   </td>
