@@ -1,6 +1,6 @@
-import { module, test } from 'qunit';
+import { module, test , only} from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render,click, visit } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | user-card', function(hooks) {
@@ -26,6 +26,29 @@ module('Integration | Component | user-card', function(hooks) {
   test('user card is having an email', async function(assert) {
     await render(hbs`{{user-card user=this.user}}`);
 
-    assert.dom('[data-test-id="user-name"]').hasText('temp-email@gmail.com')
+    assert.dom('[data-test-id="user-email"]').hasText('temp-email@gmail.com')
   });
+
+  test('edit the user details', async function (assert) {
+    await render(hbs`{{user-card user=this.user}}`);
+
+    await click('.card-action-btn a');
+    await visit('users/edit/:id')
+    await render(hbs`{{user-form userData=this.user}}`);
+
+    assert.dom('#firstName').hasAnyValue();
+    assert.dom('#lastName').hasAnyValue();
+    assert.dom('#email').hasAnyValue();
+    assert.dom('#designation').hasAnyValue();
+
+  })
+  only('delete the user ', async function (assert) {
+    await render(hbs`{{user-card user=this.user}} <div id="ember-bootstrap-wormhole"></div>`);
+
+    await click('#delete-btn');
+    assert.dom('#ember-bootstrap-wormhole #del-confirm').exists();
+
+    await click('#ember-bootstrap-wormhole #del-confirm');
+    assert.ok(this.user.isDeleted);
+  })
 });

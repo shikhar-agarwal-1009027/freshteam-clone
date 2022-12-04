@@ -1,6 +1,6 @@
 @import "../abstracts/variable.scss";
+
 .users-wrapper{
-    // margin-bottom: 60px;
     min-height: calc(100vh - 160px);
     .sec-header{
         min-width: calc(100% - 60px);
@@ -75,7 +75,6 @@
                 display: flex;
                 align-items: center;
                 margin-right: 72px;
-                // justify-content: center;
                 .label {
                     color: $filterText;
                     margin-right:8px;
@@ -92,7 +91,6 @@
                     line-height: 20px;
                     color: black;
                     text-transform: capitalize;
-                    // text-decoration: none;
                 }
                 .dropdown-menu{
                     box-shadow: rgb(24 50 71 / 20%) 0px 2px 10px;

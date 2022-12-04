@@ -8,7 +8,7 @@
             {{#link-to "users" class="cancel-text"}}
                 <span>Cancel</span>
             {{/link-to}}
-            <button class="apply" {{action "save" userData}}>Save</button>
+            <button class="apply" {{action "save" userData}} data-test-id="save-btn">Save</button>
         </div>
     </div>
 </div>
@@ -37,8 +37,8 @@
                 value=userData.first_name
                 focus-out=(action (mut showFirstNameError) true)
             }}
-        {{#if (and didValidate showFirstNameError)}}
-        <div class="error">
+        {{#if (or didValidate showFirstNameError)}}
+        <div class="error" data-test-id="firstname-error">
             {{v-get userData 'first_name' 'message'}}
         </div>
         {{/if}}
@@ -52,7 +52,7 @@
                 value=userData.last_name
                 focus-out=(action (mut showLastNameError) true)
                 }}
-            {{#if (and didValidate showLastNameError)}}
+            {{#if (or didValidate showLastNameError)}}
         <div class="error">
             {{v-get userData 'last_name' 'message'}}
         </div>
@@ -67,7 +67,7 @@
                 value=userData.email
                 focus-out=(action (mut showEmailError) true)
             }}
-        {{#if (and didValidate showEmailError)}}
+        {{#if (or didValidate showEmailError)}}
         <div class="error">
             {{v-get userData 'email' 'message'}}
         </div>
@@ -84,7 +84,7 @@
                 focus-out=(action (mut showJoiningDateError) true)
                 widgetContainer="#test-container"
             }}
-        {{#if (and didValidate showJoiningDateError)}}
+        {{#if (or didValidate showJoiningDateError)}}
         <div class="error">
             {{v-get userData 'joiningDate' 'message'}}
 
@@ -100,7 +100,7 @@
                 focus-out=(action (mut showDesignationError) true)
                 value=userData.designation
             }}
-        {{#if (and didValidate showDesignationError)}}
+        {{#if (or didValidate showDesignationError)}}
         <div class="error">
             {{v-get userData 'designation' 'message'}}
         </div>
