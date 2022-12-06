@@ -2,11 +2,11 @@
   <div class="sec-header">
     <div class="emp-title">Employees</div>
     <div> 
-      <button class="add-emp-btn" {{action 'changeView'}}>{{if listview 'List View' 'Card View'}}</button>
+      {{#link-to "users-listview"}}<button class="add-emp-btn">List View</button>{{/link-to}}
       {{#link-to "users.new" }}<button class="add-emp-btn">Add Employees</button>{{/link-to}}
     </div>
   </div>
-  {{#users-data model=model listView=listView}}
+  {{#users-data model=model list=false}}
   {{/users-data}}
 </div>
 {{outlet}}

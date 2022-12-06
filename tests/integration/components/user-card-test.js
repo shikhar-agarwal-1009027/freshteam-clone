@@ -42,13 +42,13 @@ module('Integration | Component | user-card', function(hooks) {
     assert.dom('#designation').hasAnyValue();
 
   })
-  only('delete the user ', async function (assert) {
-    await render(hbs`{{user-card user=this.user}} <div id="ember-bootstrap-wormhole"></div>`);
+  // test('delete the user ', async function (assert) {
+  //   await render(hbs`{{user-card user=this.user}} <div id="ember-bootstrap-wormhole"></div>`);
 
-    await click('#delete-btn');
-    assert.dom('#ember-bootstrap-wormhole #del-confirm').exists();
+  //   await click('#delete-btn');
+  //   assert.dom('#ember-bootstrap-wormhole #del-confirm').exists();
 
-    await click('#ember-bootstrap-wormhole #del-confirm');
-    assert.ok(this.user.isDeleted);
-  })
+  //   await click('#ember-bootstrap-wormhole #del-confirm');
+  //   assert.ok(this.user.isDeleted);
+  // })
 });
